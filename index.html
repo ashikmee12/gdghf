@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Rafi | Guest Lecturer & Advocate</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Classic Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0d0f12;
+            --card-bg: rgba(255, 255, 255, 0.025);
+            --card-border: rgba(255, 255, 255, 0.07);
+            --accent-gold: #d4af37;
+            --accent-soft: #e2c275;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Profile Header */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--accent-gold);
+            padding: 4px;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .bio-highlight {
+            color: var(--text-main);
+            font-style: italic;
+            margin-top: 8px;
+            display: block;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+            margin: 30px 0;
+        }
+
+        /* Social Icons Bar */
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .social-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 16px;
+            color: var(--accent-gold);
+        }
+
+        /* Floating Goals Cards */
+        .goals-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .goal-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .goal-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--accent-soft);
+            margin-bottom: 6px;
+        }
+
+        .goal-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Passion Badges */
+        .passions-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .passion-badge {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--accent-soft);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12.5px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 35px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        /* Currently Section */
+        .status-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 2px solid var(--accent-gold);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        /* Contact Button */
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Profile Header -->
+        <div class="profile-section">
+            <div class="profile-img-wrapper">
+                <!-- Replace src with your image link if needed -->
+                <img src="https://ui-avatars.com/api/?name=AR+Rafi&background=111&color=d4af37&size=200" alt="AR Rafi" class="profile-img">
+            </div>
+            <h1 class="name">AR Rafi</h1>
+            <div class="tagline">Guest Lecturer</div>
+            <p class="bio">
+                Driven by a passion to learn new skills and share them nationwide for free. 
+                <span class="bio-highlight">💡 Believing in the power of open knowledge to inspire and guide others.</span>
+                🤝 Let's connect, learn together, and grow every single day!
+            </p>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="socials">
+            <a href="https://www.facebook.com/md.rafi.412347" target="_blank" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/rafikhan_27" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Roles & Passions -->
+        <div class="section-title">
+            <i class="fa-solid fa-compass"></i> Roles & Passions
+        </div>
+        <div class="passions-container">
+            <span class="passion-badge">Writer</span>
+            <span class="passion-badge">Lecturer</span>
+            <span class="passion-badge">Teacher</span>
+            <span class="passion-badge">Volunteer</span>
+            <span class="passion-badge">Blogger</span>
+        </div>
+
+        <!-- Vision & Core Goals (Floating Style) -->
+        <div class="section-title">
+            <i class="fa-solid fa-bullseye"></i> Vision & Core Goals
+        </div>
+        <div class="goals-grid">
+            
+            <div class="goal-card">
+                <div class="goal-header">
+                    <i class="fa-solid fa-graduation-cap"></i> Knowledge Sharing & Mentorship
+                </div>
+                <div class="goal-desc">
+                    Serving as a Guest Lecturer to learn new skills continuously and share them nationwide for free, ensuring open education for all.
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-header">
+                    <i class="fa-solid fa-earth-americas"></i> Global Academic Research
+                </div>
+                <div class="goal-desc">
+                    Pursuing higher education abroad to conduct impactful academic research and bring international expertise back home.
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-header">
+                    <i class="fa-solid fa-hands-holding-child"></i> Social Security Advocacy
+                </div>
+                <div class="goal-desc">
+                    Working towards robust social security systems that protect vulnerable communities and promote equal welfare.
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-header">
+                    <i class="fa-solid fa-scale-balanced"></i> Women's Rights & Empowerment
+                </div>
+                <div class="goal-desc">
+                    Standing up as a strong advocate for women's rights, ensuring gender equality and empowerment at every level of society.
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-header">
+                    <i class="fa-solid fa-shield-halved"></i> Safety for Women & Children
+                </div>
+                <div class="goal-desc">
+                    Dedicating efforts to create a secure environment, focusing heavily on the safety and protection of women and children.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section-title">
+            <i class="fa-solid fa-layer-group"></i> Key Skills & Expertise
+        </div>
+        <div class="skills-container">
+            <span class="skill-tag">Academic Writing</span>
+            <span class="skill-tag">Basic Data Analysis</span>
+            <span class="skill-tag">Critical Thinking</span>
+            <span class="skill-tag">Advanced Google Search & AI Literacy</span>
+            <span class="skill-tag">Microsoft Office / Google Workspace</span>
+            <span class="skill-tag">Basic Networking</span>
+            <span class="skill-tag">Self-Paced Learning</span>
+            <span class="skill-tag">Resource Management</span>
+            <span class="skill-tag">Basic Copywriting & Blogging</span>
+            <span class="skill-tag">Basic Graphic Design (Canva)</span>
+            <span class="skill-tag">Intercultural Communication</span>
+            <span class="skill-tag">Civic Awareness</span>
+        </div>
+
+        <!-- Currently Pursuing -->
+        <div class="section-title">
+            <i class="fa-solid fa-seedling"></i> Current Focus
+        </div>
+        <div class="status-box">
+            Actively pursuing higher studies and multi-language fluency to prepare for global academic and social research.
+        </div>
+
+        <!-- Direct Contact -->
+        <a href="mailto:contact@rafikhan.eu.org" class="contact-btn">
+            <i class="fa-regular fa-paper-plane"></i> Get in Touch (contact@rafikhan.eu.org)
+        </a>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; <span id="year"></span> AR Rafi. All Rights Reserved.
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
